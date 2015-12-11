@@ -1,0 +1,5 @@
+// Format: CRN then lab section
+// Ex: 111111 134112
+// then for a different lab section,
+//     111111 134113
+71169/72549/
