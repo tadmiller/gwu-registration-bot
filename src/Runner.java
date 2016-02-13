@@ -69,9 +69,12 @@ public class Runner
 	
 	public static void sleep()
 	{
+		double time = (Math.random() * 300 + 180) * 1000;
+		System.out.println("Sleeping for " + (int)time/1000 + " seconds");
+		
 		try
 		{
-			Thread.sleep((int)(Math.random() * 1000 * 300) + 300);
+			Thread.sleep((int)time);
 		}
 
 		catch(InterruptedException ex)
