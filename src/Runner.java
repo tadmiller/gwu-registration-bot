@@ -12,12 +12,12 @@ public class Runner
 	public static void main(String[] args) throws IOException
 	{
 		String gwid = "";
-		
 		String pin = "";
+		int setting = -1;
 
 		Scanner s = new Scanner(System.in);
 		Console cnsl = null;
-	      
+		
 		try
 		{
 			cnsl = System.console();
@@ -25,7 +25,6 @@ public class Runner
 			if (cnsl != null)
 			{
 				char[] id = cnsl.readPassword("Enter your GWID: ");
-				
 				char[] p = cnsl.readPassword("Enter your PIN: ");
 				
 				for (int i = 0; i < id.length; i++)
@@ -35,7 +34,21 @@ public class Runner
 					if (i < p.length)
 						pin += p[i];
 				}
-			}      
+				
+				System.out.println("=============================");
+				
+				System.out.println("\nYou have two options for registering for classes."
+						+ "\n1. is to spam BanWeb's registration area."
+						+ "\n   This WILL result in a registration hold if done for enough time."
+						+ "\n2. is to manually go to each class within BanWeb and check to see if it is open, then register"
+						+ "\n   This is a much safer method, and should be done instead of the first if you are using this NOT on registration day.\n");
+				setting = Integer.parseInt(cnsl.readLine("Enter 1 or 2... "));
+			}    
+			else
+			{
+				System.out.println("Console not found. Exiting...");
+				System.exit(0);
+			}
 		}
 		catch(Exception ex)
 		{
@@ -69,8 +82,8 @@ public class Runner
 	
 	public static void sleep()
 	{
-		double time = (Math.random() * 300 + 180) * 1000;
-		System.out.println("Sleeping for " + (int)time/1000 + " seconds");
+		double time = (Math.random()) * 100; //(Math.random() * 300 + 180) * 1000;
+		System.out.println("Sleeping for " + (double)(time/1000) + " seconds");
 		
 		try
 		{

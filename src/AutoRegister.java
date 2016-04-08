@@ -81,7 +81,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 
-public class AutoRegister
+public class AutoRegister implements Runnable
 {
 	private String gwid;
 	private String pin;
@@ -90,6 +90,13 @@ public class AutoRegister
 	private LinkedList<String> crns;
 	
 	// com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException this is when we get auto logged out
+	
+	@Override
+	public void run()
+	{
+		// TODO Auto-generated method stub
+		
+	}
 	
 	public AutoRegister(String gwid, String pin) throws IOException
 	{
@@ -348,6 +355,9 @@ public class AutoRegister
 		}
 		
 		ListIterator<String> i = crns.listIterator();
+		
+		while (i.hasNext())
+			System.out.println(i.next());
 		
 		return crns;
 	}
